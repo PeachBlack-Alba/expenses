@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      // home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
@@ -25,8 +25,20 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Flutter App"),
       ),
-      body: Center(
-        child: Text("Widget Playground"),
+      body: Column(
+        children: <Widget>[
+          Card(
+            color: Colors.blue,
+            child: Container(
+              width: double.infinity,
+              child: Text("Chart"),
+            ),
+            elevation: 5,
+          ),
+          Card(
+            child: Text("List of TX"),
+          ),
+        ],
       ),
     );
   }
