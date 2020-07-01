@@ -1,8 +1,8 @@
 class Transaction {
-  String id;
-  String title;
-  double amount;
-  DateTime date;
+  final String id;
+  final String title;
+  final double amount;
+  final DateTime date;
   //{}for named arguments
-  Transaction({});
+  Transaction({this.id, this.title, this.amount, this.date});
 }
