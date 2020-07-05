@@ -58,16 +58,40 @@ class MyHomePage extends StatelessWidget {
                   children: <Widget>[
                     //amount is a double, that's why we are changing it to a srting .toString()
                     Container(
+                      margin: EdgeInsets.symmetric(
+                        vertical: 10,
+                        horizontal: 15,
+                      ),
+                      //Not all widget has decoration, but container does
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.purple,
+                          width: 2,
+                        ),
+                      ),
+                      padding: EdgeInsets.all(10),
                       child: Text(
                         tx.amount.toString(),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: Colors.purple,
+                        ),
                       ),
                     ),
                     Column(
+                      crossAxisAlignment:
+                          CrossAxisAlignment.start, //move items to the left
                       children: <Widget>[
-                        Text(tx.title),
+                        Text(
+                          tx.title,
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
                         //same like amount, date is not a string so we need to convert it by .toString()
                         Text(
                           tx.date.toString(),
+                          style: TextStyle(color: Colors.grey),
                         ),
                       ],
                     ),
