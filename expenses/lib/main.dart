@@ -51,7 +51,30 @@ class MyHomePage extends StatelessWidget {
           ),
           Column(
             //We need the transactions to be interactive, so we need to map them so we don't hard code them
-            children: transactions.map(),
+            //We need to transform it to a list so .toList()
+            children: transactions.map((tx) {
+              return Card(
+                child: Row(
+                  children: <Widget>[
+                    //amount is a double, that's why we are changing it to a srting .toString()
+                    Container(
+                      child: Text(
+                        tx.amount.toString(),
+                      ),
+                    ),
+                    Column(
+                      children: <Widget>[
+                        Text(tx.title),
+                        //same like amount, date is not a string so we need to convert it by .toString()
+                        Text(
+                          tx.date.toString(),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              );
+            }).toList(),
           ),
         ],
       ),
