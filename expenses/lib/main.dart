@@ -71,7 +71,9 @@ class MyHomePage extends StatelessWidget {
                       ),
                       padding: EdgeInsets.all(10),
                       child: Text(
-                        tx.amount.toString(),
+                        //$ in dart is for sring interpolation that's why we refer as \$ (for normal $sign) and then the $for interpolation
+                        "\$${tx.amount}",
+                        // tx.amount.toString() = "\$${tx.amount}"
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
