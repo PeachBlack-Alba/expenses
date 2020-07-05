@@ -34,26 +34,27 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Flutter App"),
-        ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Container(
-              width: double.infinity,
-              child: Card(
-                color: Colors.blue,
-                child: Text("Chart"),
-                elevation: 5,
-              ),
+      appBar: AppBar(
+        title: Text("Flutter App"),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          Container(
+            width: double.infinity,
+            child: Card(
+              color: Colors.blue,
+              child: Text("Chart"),
+              elevation: 5,
             ),
-            Card(
-              color: Colors.red,
-              child: Text("List of TX"),
-            ),
-          ],
-        ));
+          ),
+          Column(
+            //We need the transactions to be interactive, so we need to map them so we don't hard code them
+            children: transactions.map(),
+          ),
+        ],
+      ),
+    );
   }
 }
