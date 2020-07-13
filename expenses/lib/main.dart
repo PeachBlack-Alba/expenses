@@ -1,5 +1,6 @@
 import './transaction.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 void main() {
   runApp(MyApp());
@@ -92,7 +93,9 @@ class MyHomePage extends StatelessWidget {
                         ),
                         //same like amount, date is not a string so we need to convert it by .toString()
                         Text(
-                          tx.date.toString(),
+                          DateFormat().format(tx.date),
+                          // tx.date.toString(),
+
                           style: TextStyle(color: Colors.grey),
                         ),
                       ],
