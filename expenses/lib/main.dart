@@ -93,7 +93,7 @@ class MyHomePage extends StatelessWidget {
                         ),
                         //same like amount, date is not a string so we need to convert it by .toString()
                         Text(
-                          DateFormat().format(tx.date),
+                          DateFormat.yMMMd().format(tx.date),
                           // tx.date.toString(),
 
                           style: TextStyle(color: Colors.grey),
