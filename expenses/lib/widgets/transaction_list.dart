@@ -15,12 +15,7 @@ class TransactionList extends StatelessWidget {
       height: 300,
       child: ListView.builder(
         //itemBuilder is a must for ListView.builder and it take a function
-        itemBuilder: () {},
-
-        //We need the transactions to be interactive, so we need to map them so we don't hard code them
-        children: transactions.map((tx) {
-          //We use a card now instead of a Column for styling the widgets, but inside it we need a column to insert more than one widget
-
+        itemBuilder: (ctx, index) {
           return Card(
             child: Row(
               children: <Widget>[
@@ -70,6 +65,13 @@ class TransactionList extends StatelessWidget {
               ],
             ),
           );
+        },
+        itemCount: transactions.length,
+
+        //We need the transactions to be interactive, so we need to map them so we don't hard code them
+        children: transactions.map((tx) {
+          //We use a card now instead of a Column for styling the widgets, but inside it we need a column to insert more than one widget
+
           //We need to transform it to a list so .toList()
         }).toList(),
       ),
