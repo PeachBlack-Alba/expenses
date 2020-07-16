@@ -1,6 +1,6 @@
-import './widgets/new_transaction.dart';
-import './widgets/transaction_list.dart';
+import 'package:expenses/widgets/user_transactions.dart';
 import 'package:flutter/material.dart';
+import './widgets/user_transactions.dart';
 
 void main() {
   runApp(MyApp());
@@ -40,9 +40,7 @@ class MyHomePage extends StatelessWidget {
               elevation: 5,
             ),
           ),
-          //We use a card now instead of a Column for styling the widgets, but inside it we need a column to insert more than one widget
-          NewTransaction(),
-          TransactionList()
+          UserTransactions()
         ],
       ),
     );
