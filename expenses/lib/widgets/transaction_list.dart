@@ -35,7 +35,7 @@ class TransactionList extends StatelessWidget {
                   padding: EdgeInsets.all(10),
                   child: Text(
                     //$ in dart is for sring interpolation that's why we refer as \$ (for normal $sign) and then the $for interpolation
-                    "\$${tx.amount}",
+                    "\$${transactions[index].amount}",
                     // tx.amount.toString() = "\$${tx.amount}"
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -49,13 +49,13 @@ class TransactionList extends StatelessWidget {
                       CrossAxisAlignment.start, //move items to the left
                   children: <Widget>[
                     Text(
-                      tx.title,
+                      transactions[index].title,
                       style:
                           TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                     //same like amount, date is not a string so we need to convert it by .toString()
                     Text(
-                      DateFormat.yMMMd().format(tx.date),
+                      DateFormat.yMMMd().format(transactions[index].date),
                       // tx.date.toString(),
 
                       style: TextStyle(color: Colors.grey),
@@ -69,11 +69,11 @@ class TransactionList extends StatelessWidget {
         itemCount: transactions.length,
 
         //We need the transactions to be interactive, so we need to map them so we don't hard code them
-        children: transactions.map((tx) {
-          //We use a card now instead of a Column for styling the widgets, but inside it we need a column to insert more than one widget
+        // children: transactions.map((tx) {
+        //   //We use a card now instead of a Column for styling the widgets, but inside it we need a column to insert more than one widget
 
-          //We need to transform it to a list so .toList()
-        }).toList(),
+        //   //We need to transform it to a list so .toList()
+        // }).toList(),
       ),
     );
   }
