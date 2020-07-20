@@ -8,45 +8,15 @@ class UserTransactions extends StatefulWidget {
   _UserTransactionsState createState() => _UserTransactionsState();
 }
 
-class _UserTransactionsState extends State<UserTransactions> {
-  final List<Transaction> _userTransactions = [
-    Transaction(
-      id: "t1",
-      title: "New Shoes",
-      amount: 69.99,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: "t2",
-      title: "Weekly Groceries",
-      amount: 16.53,
-      date: DateTime.now(),
-    ),
-  ];
+class _UserTransactionsState extends State<UserTransactions> {}
 
-  //Method
-
-  void _addNewTransaction(String txTitle, double txAmount) {
-    final newTx = Transaction(
-      title: txTitle,
-      amount: txAmount,
-      date: DateTime.now(),
-      id: DateTime.now().toString(),
-    );
-
-    setState(() {
-      _userTransactions.add(newTx);
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        //We are passing the method _addNewTransaction to Newtransaction widget to be able to pass it to main, without () otherwise we would run it
-        NewTransaction(_addNewTransaction),
-        TransactionList(_userTransactions),
-      ],
-    );
-  }
+@override
+Widget build(BuildContext context) {
+  return Column(
+    children: <Widget>[
+      //We are passing the method _addNewTransaction to Newtransaction widget to be able to pass it to main, without () otherwise we would run it
+      NewTransaction(_addNewTransaction),
+      TransactionList(_userTransactions),
+    ],
+  );
 }
