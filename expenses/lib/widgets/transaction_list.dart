@@ -35,7 +35,7 @@ class TransactionList extends StatelessWidget {
                   padding: EdgeInsets.all(10),
                   child: Text(
                     //$ in dart is for sring interpolation that's why we refer as \$ (for normal $sign) and then the $for interpolation
-                    "\$${transactions[index].amount}",
+                    "\$${transactions[index].amount.toStringAsFixed(2)}",
                     // tx.amount.toString() = "\$${tx.amount}"
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
