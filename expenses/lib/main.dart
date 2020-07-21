@@ -1,8 +1,9 @@
 import 'package:expenses/widgets/new_transaction.dart';
 import 'package:expenses/widgets/user_transactions.dart';
 import 'package:flutter/material.dart';
-import './widgets/user_transactions.dart';
+import "./widgets/transaction_list.dart";
 import "./widgets/new_transaction.dart";
+import 'models/transaction.dart';
 
 void main() {
   runApp(MyApp());
@@ -26,8 +27,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final titleController = TextEditingController();
-  final amountController = TextEditingController();
+  
 
   final List<Transaction> _userTransactions = [
     Transaction(
@@ -58,11 +58,15 @@ class _MyHomePageState extends State<MyHomePage> {
       _userTransactions.add(newTx);
     });
 
-  void startAddNewTransaction(BuildContext ctx) {
+  void _startAddNewTransaction(BuildContext ctx) {
     showModalBottomSheet(
       context: ctx,
       builder: (_) {
-        return NewTransaction();
+
+        return GestureDetector(
+          onTap: (){},
+          child:NewTransaction(_addNewTransaction),
+          behavior: HitTestBehavior.opaque,); 
       },
     );
   }
@@ -75,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.add),
-            onPressed: () {},
+            onPressed: () => _startAddNewTransaction(context),
           ),
         ],
       ),
@@ -92,14 +96,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 elevation: 5,
               ),
             ),
-            UserTransactions()
+            TransactionList(_userTransactions),
           ],
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: () {},
+        onPressed:() => _startAddNewTransaction(context),
       ),
     );
   }
