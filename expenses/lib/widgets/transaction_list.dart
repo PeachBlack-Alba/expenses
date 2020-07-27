@@ -28,7 +28,7 @@ class TransactionList extends StatelessWidget {
                   //Not all widget has decoration, but container does
                   decoration: BoxDecoration(
                     border: Border.all(
-                      color: Colors.purple,
+                      color: Theme.of(context).primaryColor,
                       width: 2,
                     ),
                   ),

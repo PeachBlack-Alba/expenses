@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Personal Expenses ',
       theme: ThemeData(
-        primarySwatch: ,
+        primarySwatch: Colors.purple,
       ),
       home: MyHomePage(),
     );
