@@ -1,5 +1,5 @@
 import 'package:expenses/widgets/new_transaction.dart';
-import 'package:expenses/widgets/user_transactions.dart';
+// import 'package:expenses/widgets/user_transactions.dart';
 import 'package:flutter/material.dart';
 import "./widgets/transaction_list.dart";
 import "./widgets/new_transaction.dart";
@@ -13,7 +13,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter App',
+      title: 'Personal Expenses ',
+      theme: ThemeData(
+        primarySwatch: ,
+      ),
       home: MyHomePage(),
     );
   }
@@ -27,8 +30,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  
-
   final List<Transaction> _userTransactions = [
     Transaction(
       id: "t1",
@@ -58,53 +59,54 @@ class _MyHomePageState extends State<MyHomePage> {
       _userTransactions.add(newTx);
     });
 
-  void _startAddNewTransaction(BuildContext ctx) {
-    showModalBottomSheet(
-      context: ctx,
-      builder: (_) {
+    void _startAddNewTransaction(BuildContext ctx) {
+      showModalBottomSheet(
+        context: ctx,
+        builder: (_) {
+          return GestureDetector(
+            onTap: () {},
+            child: NewTransaction(_addNewTransaction),
+            behavior: HitTestBehavior.opaque,
+          );
+        },
+      );
+    }
 
-        return GestureDetector(
-          onTap: (){},
-          child:NewTransaction(_addNewTransaction),
-          behavior: HitTestBehavior.opaque,); 
-      },
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Flutter App"),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.add),
-            onPressed: () => _startAddNewTransaction(context),
-          ),
-        ],
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Container(
-              width: double.infinity,
-              child: Card(
-                color: Colors.blue,
-                child: Text("Chart"),
-                elevation: 5,
-              ),
+    @override
+    Widget build(BuildContext context) {
+      return Scaffold(
+        appBar: AppBar(
+          title: Text("Personal Expenses"),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.add),
+              onPressed: () => _startAddNewTransaction(context),
             ),
-            TransactionList(_userTransactions),
           ],
         ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed:() => _startAddNewTransaction(context),
-      ),
-    );
+        body: SingleChildScrollView(
+          child: Column(
+            // mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Container(
+                width: double.infinity,
+                child: Card(
+                  color: Colors.blue,
+                  child: Text("Chart"),
+                  elevation: 5,
+                ),
+              ),
+              TransactionList(_userTransactions),
+            ],
+          ),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: () => _startAddNewTransaction(context),
+        ),
+      );
+    }
   }
 }
