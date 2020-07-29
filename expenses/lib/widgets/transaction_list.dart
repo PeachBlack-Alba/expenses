@@ -15,7 +15,19 @@ class TransactionList extends StatelessWidget {
       height: 300,
       child: transactions.isEmpty
           ? Column(
-              children: <Widget>[Text("No transactions added yet!")],
+              children: <Widget>[
+                Text(
+                  "No transactions added yet!",
+                  style: Theme.of(context).textTheme.headline1,
+                ),
+                Container(
+                  height: 200,
+                  child: Image.asset(
+                    "assets/images/waiting.png",
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ],
             )
           : ListView.builder(
               //itemBuilder is a must for ListView.builder and it take a function
